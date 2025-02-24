@@ -1,102 +1,250 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-
 <header>
 
-    <section class="header-button-container">
-        <button class="red">
-          <svg class="close-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
-          </svg>
-        </button>
+<section class="header-button-container">
 
-        <button class="yellow">
-          <svg class="min-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/>
-          </svg>
-        </button>
+    <button class="red">
+      <svg class="close-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+      </svg>
+    </button>
 
-        <button class="green">
-          <svg class="resize-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12.832 3.445a1 1 0 0 0-1.664 0l-4 6A1 1 0 0 0 8 11h8a1 1 0 0 0 .832-1.555l-4-6Zm-1.664 17.11a1 1 0 0 0 1.664 0l4-6A1 1 0 0 0 16 13H8a1 1 0 0 0-.832 1.555l4 6Z" clip-rule="evenodd"/>
-          </svg>
-        </button>
+    <button class="yellow">
+      <svg class="min-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/>
+      </svg>
+    </button>
 
-        <button class="blue">
-          <svg class="toggle-menu" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
-            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
-          </svg>
-        </button>
-    </section>
+    <button class="green">
+      <svg class="resize-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+        <path fill-rule="evenodd" d="M12.832 3.445a1 1 0 0 0-1.664 0l-4 6A1 1 0 0 0 8 11h8a1 1 0 0 0 .832-1.555l-4-6Zm-1.664 17.11a1 1 0 0 0 1.664 0l4-6A1 1 0 0 0 16 13H8a1 1 0 0 0-.832 1.555l4 6Z" clip-rule="evenodd"/>
+      </svg>
+    </button>
 
-    <nav>
+    <button class="blue">
+      <svg class="toggle-menu" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+      </svg>
+    </button>
 
-      <h2 class="colors-label">Colors</h2>
 
-      <ul class="colors-container">
-        {% for person in persons %}
-          <a class="color-nav-items">
-            <button class="color-item" style="background-color: {{ person.fav_color }};"></button>
-            <p class="color-name">{{ person.fav_color }}</p>
-          </a>
-        {% endfor %}
-      </ul>
+</section>
 
+<nav>
+  <h2 class="colors-label">Colors</h2>
+  <ul class="colors-container">
+    <a class="color-nav-items">
+      <button class="color-1"></button>
+      <p class="color-name">Red</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-2"></button>
+      <p class="color-name">Orange</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-3"></button>
+      <p class="color-name">Geel</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-4"></button>
+      <p class="color-name">Groen</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-5"></button>
+      <p class="color-name">Blauw</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-6"></button>
+      <p class="color-name">Paars</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-7"></button>
+      <p class="color-name">Grijs</p>
+    </a>
+
+    <a class="color-nav-items">
+      <button class="color-8"></button>
+      <p class="color-name">Pink</p>
+    </a>
+  </ul>
+      
+      
+  
     </nav>
 
 </header>
 
-  
-     {% comment %} https://shopify.github.io/liquid/filters/replace/ {% endcomment %}
-    {% comment %} https://shopify.github.io/liquid/filters/downcase/ {% endcomment %}
+
+
+
+
 
 <main>
-
-    <h1 class="header-title">Squadpage</h1>
-    
-    <div class="mugshot-container">
-      {% for person in persons %}
-        <figure class="mugshot-item">
-          <img src="./assets/mugshots/{{ person.name | replace: ' ', '_' | downcase }}_processed.jpg" alt="{{ person.name }}">
-          <figcaption>{{ person.name }}</figcaption>
-        </figure>
-      {% endfor %}
-    </div>
-
-</main>
-
-    {% comment %} fdnd.directus.app/items/person/?fields=squads?fields=fav_color&filter[fav_color][_neq]=null&sort=fav_color&groupBy=fav_color {% endcomment %}
+<h1 class="header-title">Squadpage</h1>
 
 
+ <div class="mugshot-container">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-  {% comment %} <ul>
-    {% for person in persons %}
-      <li>
-        <span> {{ person.fav_color }}</span>
-      </li>
-    {% endfor %}
-  </ul>
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
   
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+  
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+  
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+  
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+  
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+  
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
+
+  <figure class="mugshot-item">
+    <img src="./assets/mugshots/1739288477226_processed.jpg">
+    <figcaption>Ravi Tjikhoeri</figcaption>
+  </figure>
 
 
- <ul>
-  {% for person in persons %}
-    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
-  {% endfor %}
-</ul>    {% endcomment %}
+</div>
 
 {% render 'partials/foot.liquid', squads: squads %}
 
