@@ -1,0 +1,144 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: grid;
+  grid-template-columns: 10em 1fr;
+  grid-template-rows: auto;
+}
+
+header {
+  display: grid;
+  grid-template-columns: 12em;
+  grid-template-rows: 5em;
+  background-color: #2a2827;
+}
+
+.header-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  align-items: center;
+  padding: var(--padding-sections);
+  background-color: #2a2827;
+}
+
+nav {
+  background-color: #2a2827;
+}
+
+.red,
+.yellow,
+.green,
+.blue {
+  height: 1.5em;
+  width: 1.5em;
+  border-radius: 100%;
+
+  &.red {
+    background-color: rgb(249, 61, 61);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.yellow {
+    background-color: rgb(250, 173, 73);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.green {
+    background-color: rgb(13, 168, 13);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(150deg);
+  }
+
+  &.blue {
+    background-color: rgb(93, 100, 233);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.resize-icon,
+.min-icon,
+.close-icon,
+.toggle-menu {
+  color: rgba(0, 0, 0, 0.195);
+}
+
+.header-title {
+  padding-left: 1.5em;
+  color: white;
+  display: flex;
+  padding: 2.3em;
+  align-items: center;
+  background-color: #2a2827;
+  border-bottom: 1px solid black;
+}
+
+/* ----------- */
+
+.mugshot-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 550px) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @media (min-width: 700px) {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  @media (min-width: 1000px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.mugshot-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  background-color: #21211e;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+figure img {
+  height: 15em;
+  width: 13em;
+}
+
+.color-item {
+  height: 1em;
+  width: 1em;
+  border-radius: 100%;
+}
+
+.color-nav-items {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5em;
+  padding-top: 1em;
+  padding-left: 1em;
+}
+
+.colors-label {
+  padding-left: 1em;
+}

@@ -1,22 +1,112 @@
-<h1>Zet 'm op team {{ teamName }}!</h1>
+{% render 'partials/head.liquid', title: 'Squad page' %}
 
-<h2>Huidige berichten</h2>
 
-{% for message in messages %}
-<p>{{ message.from }}: {{ message.text }} @{{ message.created | date: '%d-%m-%Y %H:%M' }}</p>
-{% else %}
-<p>Er zijn nog geen berichten voor dit team.</p>
-{% endfor %}
+<header>
 
-<h2>Voeg een bericht toe</h2>
-<form method="post" action="/">
-  <label>
-    Naam:
-    <input type="text" name="from" required>
-  </label>
-  <label>
-    Bericht:
-    <textarea name="text" required></textarea>
-  </label>
-  <button type="submit">Verstuur</button>
-</form>
+    <section class="header-button-container">
+        <button class="red">
+          <svg class="close-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+          </svg>
+        </button>
+
+        <button class="yellow">
+          <svg class="min-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14"/>
+          </svg>
+        </button>
+
+        <button class="green">
+          <svg class="resize-icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12.832 3.445a1 1 0 0 0-1.664 0l-4 6A1 1 0 0 0 8 11h8a1 1 0 0 0 .832-1.555l-4-6Zm-1.664 17.11a1 1 0 0 0 1.664 0l4-6A1 1 0 0 0 16 13H8a1 1 0 0 0-.832 1.555l4 6Z" clip-rule="evenodd"/>
+          </svg>
+        </button>
+
+        <button class="blue">
+          <svg class="toggle-menu" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="none" viewBox="0 0 24 24">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 19-7-7 7-7"/>
+          </svg>
+        </button>
+    </section>
+
+    <nav>
+
+      <h2 class="colors-label">Colors</h2>
+
+      <ul class="colors-container">
+        {% for person in persons %}
+          <a class="color-nav-items">
+            <button class="color-item" style="background-color: {{ person.fav_color }};"></button>
+            <p class="color-name">{{ person.fav_color }}</p>
+          </a>
+        {% endfor %}
+      </ul>
+
+    </nav>
+
+</header>
+
+  
+     {% comment %} https://shopify.github.io/liquid/filters/replace/ {% endcomment %}
+    {% comment %} https://shopify.github.io/liquid/filters/downcase/ {% endcomment %}
+
+<main>
+
+    <h1 class="header-title">Squadpage</h1>
+    
+    <div class="mugshot-container">
+      {% for person in persons %}
+        <figure class="mugshot-item">
+          <img src="./assets/mugshots/{{ person.name | replace: ' ', '_' | downcase }}_processed.jpg" alt="{{ person.name }}">
+          <figcaption>{{ person.name }}</figcaption>
+        </figure>
+      {% endfor %}
+    </div>
+
+</main>
+
+    {% comment %} fdnd.directus.app/items/person/?fields=squads?fields=fav_color&filter[fav_color][_neq]=null&sort=fav_color&groupBy=fav_color {% endcomment %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {% comment %} <ul>
+    {% for person in persons %}
+      <li>
+        <span> {{ person.fav_color }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  
+
+
+ <ul>
+  {% for person in persons %}
+    <li><a href="/student/{{ person.id }}">{{ person.name }}</a></li>
+  {% endfor %}
+</ul>    {% endcomment %}
+
+{% render 'partials/foot.liquid', squads: squads %}
+
+{% comment %} alle kleuren ophalen {% endcomment %}
+
+{% comment %} https://fdnd.directus.app/items/person/?fields=fav_color&filter[fav_color][_neq]=null&sort=fav_color&groupBy=fav_color {% endcomment %}
+
+{% comment %} https://fdnd.directus.app/items/person?fields=fav_color,name&filter[fav_color][_neq]=null {% endcomment %}
+
+
+{% comment %} kleur met naam ophalen {% endcomment %}
+
+{% comment %} fdnd.directus.app/items/person/?fields=*,squads.squad_id.&filter= {% endcomment %}
