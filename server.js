@@ -1,33 +1,27 @@
-import express from 'express'
-
-import { Liquid } from 'liquidjs';
-
-
-// Vul hier jullie team naam in
-const teamName = 'Zen';
+import express from "express"; 
+import { Liquid } from "liquidjs"; 
 
 
-const app = express()
-
-app.use(express.static('public'))
-
+const app = express();
 const engine = new Liquid();
-app.engine('liquid', engine.express()); 
 
-app.set('views', './views')
+app.use(express.static("public"));
 
-app.use(express.urlencoded({extended: true}))
+app.engine("liquid", engine.express()); 
+app.set("views", "./views"); 
+app.set("view engine", "liquid"); 
+
+app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/', async function (request, response) {
-  const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages/?filter={"for":"Team ${teamName}"}`)
-  const messagesResponseJSON = await messagesResponse.json()
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name&filter={"squads":{"squad_id":{"name":"1G"}}}')
 
-  response.render('index.liquid', {
-    teamName: teamName,
-    messages: messagesResponseJSON.data
-  })
+  const personResponseJSON = await personResponse.json()
+  response.render('index.liquid', {persons: personResponseJSON.data})
 })
+
+
 
 app.post('/', async function (request, response) {
   await fetch('https://fdnd.directus.app/items/messages/', {
@@ -46,12 +40,8 @@ app.post('/', async function (request, response) {
 })
 
 
-app.set('port', process.env.PORT || 8000)
 
-if (teamName == '') {
-  console.log('Voeg eerst de naam van jullie team in de code toe.')
-} else {
-  app.listen(app.get('port'), function () {
-    console.log(`Application started on http://localhost:${app.get('port')}`)
-  })
-}
+app.set("port", process.env.PORT || 8000);
+app.listen(app.get("port"), function () {
+  console.log(`Application started on http://localhost:${app.get("port")}`);
+});
