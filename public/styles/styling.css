@@ -1,15 +1,87 @@
+
+/* 
+Bronnen gebruikt voor inspiratie en technieken:
+1. Charlotte Dann - https://charlottedann.com/
+2. Web Dev Simplified - https://www.webdevsimplified.com/
+3. Eigen project: [Squad-page]
+Auteur: Fatima El Hilali
+*/
+
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-
   body {
     background: linear-gradient(180deg, #0a0f30, #08144d);
   }
   
 
+/* Logo-container opmaak */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; 
+  justify-content: flex-start;
+  text-align: left;    
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6));
+
+}
+
+/* Logo-container aanpassingen voor desktop */
+@media (min-width: 1024px) {
+  .logo-container {
+      flex-direction: row;
+      height: 30vh;
+  }
+}
+
+/* Stijl voor de titel in de logo-container */
+.logo-container h1 {
+  color: #e0e0e0; 
+  line-height: 1.4;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-family: 'Poppins', sans-serif;
+  filter: brightness(1.2);
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6); 
+  font-size: 0.875rem; 
+  margin-top: 4%;
+  padding: 0.5rem;
+}
+
+
+/* Logo-container aanpassingen voor desktop */
+@media (min-width: 1024px) {
+  .logo-container h1 {
+    font-size: 1rem;
+    letter-spacing: 0.08rem; 
+    margin-bottom: 2rem;
+
+
+  }
+}
+
+/* Logo afbeelding instellen */
+.logo-container img {
+  height: auto;
+  width: min(14%, 100px); 
+  opacity: 0.7; /* Maakt het iets transparanter */
+
+}
+
+.logo-container img {
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Logo afbeelding kleiner maken op desktop */
+@media (min-width: 1024px) {
+  .logo-container img {
+      max-width: 8%;
+  }
+}
 
 
 /* Liberty font */
@@ -30,12 +102,12 @@
   align-items: center;
   width: 100%;
   margin: 10rem auto 5rem auto;
-  color: #44f5c3; /* Mintgroene basiskleur */
-  text-shadow: 0 0 10px rgba(68, 245, 195, 0.8), 0 0 20px #4a34c7; /* Neon Glow */
-}
+  color: #44f5c3; 
+  text-shadow: 0 0 5px #00f0ff, 0 0 10px #00b3b3, 0 0 25px #008080;}
+
 
 /* Responsieve Styling voor grotere schermen */
-@media screen and (min-width: 768px) {
+@media (min-width: 1024px) {
   .text {
       font-size: 7rem;
       letter-spacing: -0.1em;
@@ -45,7 +117,7 @@
 
 /* Neon Glow Effect */
 .text .letter {
-  color: #44f5c3; /* Mintgroen */
+  color: #44f5c3; 
   text-shadow: 0 0 5px #44f5c3, 0 0 15px #4a34c7, 0 0 30px rgba(68, 245, 195, 0.8);
   display: inline-block;
   transition: text-shadow 0.3s ease-in-out;
@@ -84,20 +156,15 @@
 
 /* Hover Effect met extra glow */
 .text:hover .letter {
-  text-shadow: 0 0 15px #44f5c3, 0 0 30px #4a34c7, 0 0 60px rgba(68, 245, 195, 1);
-  transform: scale(1.05);
+  text-shadow: 0 0 8px #00f0ff, 0 0 16px #00b3b3, 0 0 30px #008080;
+  transition: text-shadow 0.3s ease-in-out;
 }
 
-
-/* Hover Effect */
-.text:hover .letter {
-  text-shadow: 0 0 0.4em #00f0ff, 0 0 0.8em #00f0ff, 0 0 1.6em rgba(0, 240, 255, 1);
-}
 
 .students-list {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
   justify-content: center;
   align-items: center;
   margin-top: 5%;
@@ -109,10 +176,10 @@
 }
 
 /* Desktop versie: 3 kolommen */
-@media (min-width: 1024px) { /* 1024px -> 64rem */
+@media (min-width: 1024px) { 
   .students-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 5rem;
+    gap: 4rem; 
     width: 60%;
     margin-top: 15%;
   }
@@ -120,26 +187,15 @@
 
 /* Stijl voor de student kaart */
 .student {
-  width: 14rem;
-  height: 18rem;
+  width: 12rem;
+  height: 17rem;
   position: relative;
   background-color: #44f5c327;
   border-radius: 0.5rem;
-  border: 2px solid #44f5c3;
   text-align: center;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.2);
-  animation: glowPulse 1.5s infinite alternate ease-in-out;
 }
 
-/* Animatie voor de gloeiende puls */
-@keyframes glowPulse {
-  0% {
-    text-shadow: 0 0 0.625rem #44f5c3, 0 0 1.875rem #4a34c7;
-  }
-  100% {
-    text-shadow: 0 0 1.25rem #44f5c3, 0 0 2.5rem #4a34c7;
-  }
-}
 
 /* Binnenkant van de student kaart voor flip-effect */
 .student-inner {
@@ -166,10 +222,24 @@
 
 /* Stijl voor afbeelding op de voorkant */
 .student-front img {
+  padding: 0.375rem; 
+  border: 0.5625rem solid transparent; 
+  outline: 1px solid rgba(0, 240, 255, 0.6); 
+  outline-offset: -1px;
+  background: conic-gradient(from 90deg at 1px 1px, transparent 25%, #00f0ff 0);
   width: 100%;
   height: 85%;
   object-fit: cover;
-  border-radius: 0.5rem  0.5rem  0 0 ;
+  border-radius: 0.5rem 0.5rem 0 0;
+  transition: transform 0.3s ease-in-out;
+  margin-bottom: -0.3rem;
+}
+
+/* Hover effect voor de afbeelding op de voorkant */
+.student-front img:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 0 0.9375rem #fffc86;
 }
 
 /* Stijl voor student naam */
@@ -179,25 +249,43 @@
   text-transform: uppercase;
 }
 
-/* Stijl voor de flip-knop */
 .flip-button {
-  background-color: #5dc2a5;
-  color: white;
+  background-color: #00f0ff;
+  color: #0a0a0a;
   border: none;
   padding: 0.5rem 0.75rem;
-  margin-top: 0.5rem;
   margin-bottom: 0.7rem;
+  margin-top: 0.3rem;
   cursor: pointer;
-  border-radius: 0.375rem;
+  border-radius: 0.5rem;
   font-weight: bold;
   width: 5rem;
-  transition: background 0.3s;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 4px #00f0ff, 0 0 8px rgba(0, 240, 255, 0.4);
+  animation: pulse 2s infinite alternate ease-in-out;
+
 }
 
-/* Hover effect voor de flip-knop */
+/* Hover effect voor een iets subtielere glow */
 .flip-button:hover {
-  background-color: #3624a7;
+  box-shadow: 0 0 6px #00f0ff, 0 0 12px rgba(0, 240, 255, 0.5);
+  transform: scale(1.05);
 }
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 8px   #00f0ff, 0 0 16px rgba(0, 240, 255, 0.6); }
+  50% { box-shadow: 0 0 12px #00f0ff, 0 0 24px rgba(0, 240, 255, 0.8); }
+  100% { box-shadow: 0 0 8px #00f0ff, 0 0 16px rgba(0, 240, 255, 0.6); }
+}
+
+
+/* Klik-effect voor meer interactie */
+.flip-button:active {
+  transform: scale(0.95);
+}
+
 
 /* Achterkant van de student kaart */
 .student-back {
@@ -225,9 +313,3 @@
   transform: rotateY(180deg);
 }
 
-/* Hover effect voor de afbeelding op de voorkant */
-.student-front img:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  box-shadow: 0 0 0.9375rem #fffc86;
-}
