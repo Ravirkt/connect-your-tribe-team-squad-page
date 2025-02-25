@@ -1,7 +1,50 @@
 body {
-  --padding-sections: 1em 1em;
+  /* COLOR */
+  --main-bg-color: #01ECCB; 
+  --header-bg-color: #050344;
+  --filter-bg-color: #050344;
+  --chatbox-bg-color: #A675F5;
 
-  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  --primary-text-color: #01ECCB;
+  --secundary-text-color: #FFFFFF;
+  --tertiary-text-color: #050344;
+
+  --button-color: #FFFFFF;
+  --button-bg-color: #A675F5;
+
+  --primary-accent-color: #A675F5;
+  --secundaire-accent-color: #01ECCB;
+
+  /* FONTS */
+  --heading-font:’’, ;
+  --main-font-family:’Potta One’, sans serif;
+  --paragraph-font-family: ‘Pridi’, sans serif;
+
+  --font-size-h1: 52px;
+  --font-size-h2: 42px;
+  --font-size-h3: 30px;
+
+  --font-size-s: 16px;
+  --font-size-m: 24px;
+  --font-size-l: 28px;
+
+  --font-weight: 400;
+  --line-height: 1.8em;
+
+  /* BORDER-RADIUS */
+  --border-radius-s: 4px;
+  --border-radius-m: 8px;
+  --border-radius-l: 16px;
+
+  /* Z-INDEX */
+  --z-index-header: 1;
+  --z-index-filter: 3;
+  --z-index-chatbox: 5;
+
+  /* BUTTON */
+  --cursor-pointer: pointer;
+  --border-radius-btn: 16px;
+  --border-btn: none;
 }
 
 button {
