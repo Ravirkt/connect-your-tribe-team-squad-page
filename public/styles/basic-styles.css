@@ -20,13 +20,14 @@ body {
   --main-font-family:’Potta One’, sans serif;
   --paragraph-font-family: ‘Pridi’, sans serif;
 
-  --font-size-h1: 52px;
-  --font-size-h2: 42px;
-  --font-size-h3: 30px;
+  --font-size-h1: 3.25rem; 
+  --font-size-h2: 2.625rem; 
+  --font-size-h3: 1.875rem; 
 
-  --font-size-s: 16px;
-  --font-size-m: 24px;
-  --font-size-l: 28px;
+  --font-size-s: 1rem; 
+  --font-size-m: 1.5rem;
+  --font-size-l: 1.75rem; 
+
 
   --font-weight: 400;
   --line-height: 1.8em;
