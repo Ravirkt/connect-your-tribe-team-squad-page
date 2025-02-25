@@ -1,0 +1,26 @@
+<div class="students-list">
+  {% for person in persons %}
+    <div class="student">
+      <div class="student-inner">
+        <!-- Voorzijde: afbeelding -->
+        <div class="student-front">
+          <img src="/assets/{{ person.id }}.png" alt="{{ person.name }}" />
+          <div class="student-info">
+            <button class="flip-button">MORE</button>
+          </div>
+        </div>
+        <!-- Achterzijde: naam en squad -->
+        <div class="student-back">
+          <p>Name: {{ person.name }}</p>
+          <p>Squad:
+            {% if person.squads and person.squads[0] %}
+              {{ person.squads[0].squad_id.name }}
+            {% else %}
+              Geen squad
+            {% endif %}
+          </p>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
