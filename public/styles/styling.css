@@ -112,7 +112,7 @@
 @media (min-width: 1024px) { /* 1024px -> 64rem */
   .students-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 4rem;
+    gap: 0.5rem;
     width: 60%;
     margin-top: 15%;
   }
