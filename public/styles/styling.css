@@ -37,7 +37,7 @@
 /* Responsieve Styling voor grotere schermen */
 @media screen and (min-width: 768px) {
   .text {
-      font-size: 9rem;
+      font-size: 7rem;
       letter-spacing: -0.1em;
       margin-top: 10%;
   }
@@ -112,7 +112,7 @@
 @media (min-width: 1024px) { /* 1024px -> 64rem */
   .students-list {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
+    gap: 5rem;
     width: 60%;
     margin-top: 15%;
   }
