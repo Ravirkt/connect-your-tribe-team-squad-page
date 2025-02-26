@@ -38,6 +38,10 @@ app.post('/', async function (request, response) {
   response.redirect(303, '/')
 })
 
+// genre filter
+// filter voor action
+app.get('/action', async function (request, response) {
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Action"}}')
 
 
 app.set("port", process.env.PORT || 8000);
