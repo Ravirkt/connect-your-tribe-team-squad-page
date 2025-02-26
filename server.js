@@ -45,3 +45,17 @@ app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), function () {
   console.log(`Application started on http://localhost:${app.get("port")}`);
 });
+
+
+
+
+app.get('/chat', async function (request, response) {
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name&filter={"squads":{"squad_id":{"name":"1G"}}}')
+  const personResponseJSON = await personResponse.json()
+
+  personResponseJSON.data.map(function(person){
+    person.fav_country_for_map = countries[person.fav_country] 
+  })
+
+  response.render('chat.liquid', {persons: personResponseJSON.data, squads: squadResponseJSON.data})
+})
