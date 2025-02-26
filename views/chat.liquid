@@ -1,11 +1,11 @@
 {% render 'partials/head.liquid', title: 'Squad page' %}
 
-{%for message in messages%}
-    <article>
-        <p>{{ messages}}</p>
-        <form action=""><img src="/assets/icon-heart.svg" alt=""></form>
-    </article>
-{%endfor%}
+{% for message in messages %}
+    {% comment %} <article> {% endcomment %}
+        <p>{{message}}</p>
+        {% comment %} <form action=""><img src="/assets/icon-heart.svg" alt=""></form> {% endcomment %}
+    {% comment %} </article> {% endcomment %}
+{% endfor %}
 
 <button class="chat-messages-button-desktop"><img class="messages-desktop" src="/assets/messages-svgrepo-com.svg" alt="chat"></button>
 
