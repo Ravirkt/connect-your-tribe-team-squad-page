@@ -1,10 +1,10 @@
 
-{%for message in messages%}
-    <article>
-        <p>{{ messages}}</p>
-        <form action=""><img src="/assets/icon-heart.svg" alt=""></form>
-    </article>
-{%endfor%}
+{% for message in messages %}
+    {% comment %} <article> {% endcomment %}
+        <p>{{message}}</p>
+        {% comment %} <form action=""><img src="/assets/icon-heart.svg" alt=""></form> {% endcomment %}
+    {% comment %} </article> {% endcomment %}
+{% endfor %}
 
 <div>
     <button><img src="/assets/icon-cross.svg" alt=""></button>

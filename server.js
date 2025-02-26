@@ -35,7 +35,6 @@ app.post('/', async function (request, response) {
       'Content-Type': 'application/json;charset=UTF-8'
     }
   });
-
   response.redirect(303, '/')
 })
 
@@ -54,4 +53,15 @@ app.get('/chat', async function (request, response) {
 
   const personResponseJSON = await personResponse.json()
   response.render('chat.liquid', {persons: personResponseJSON.data})
+})
+
+let messages = []
+
+app.get('/berichten', async function(request, response) {
+    response.render('chat.liquid', {messages: messages})
+})
+
+app.post('/berichten', async function(request, response) {
+  messages.push(request.body.tekstjes)
+  response.redirect(303, '/berichten')
 })
