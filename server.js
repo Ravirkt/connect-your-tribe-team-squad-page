@@ -99,24 +99,26 @@ app.get('/chat', async function (request, response) {
   response.render('chat.liquid', {persons: personResponseJSON.data, messages: messages})
 })
 
+
+
 // CODE bewerken
 
 const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter={"_and":[{"cohort":"2425"},{"tribe":{"name":"FDND Jaar 1"}}]}')
 const squadResponseJSON = await squadResponse.json()
 
-app.get('/logger', async function (request, response) {
+app.get('/chat', async function (request, response) {
   // Haal berichten op voor het team
   const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages?limit=-1&filter={"for" : "Team Zen / Vragen"}`);
   const messagesResponseJSON = await messagesResponse.json();
  
-  response.render('logger.liquid', {
+  response.render('chat.liquid', {
     // teamName: teamName,
     //squads: squadResponseJSON.data,
     messages: messagesResponseJSON.data
   });
 })
  
-app.post('/logger', async function (request, response) {
+app.post('/chat', async function (request, response) {
   await fetch('https://fdnd.directus.app/items/messages/', {
     method: 'POST',
     body: JSON.stringify({
