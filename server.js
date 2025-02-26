@@ -66,6 +66,15 @@ app.get('/comedy', async function (request, response) {
   response.render('index.liquid', { persons: personResponseJSON.data, squads: squadResponseJSON.data })
 })
 
+// filter voor drama
+app.get('/drama', async function (request, response) {
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Drama"}}')
+
+  const personResponseJSON = await personResponse.json()
+
+  response.render('index.liquid', { persons: personResponseJSON.data, squads: squadResponseJSON.data })
+})
+
 app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), function () {
   console.log(`Application started on http://localhost:${app.get("port")}`);
