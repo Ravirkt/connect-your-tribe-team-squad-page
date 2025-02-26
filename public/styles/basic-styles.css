@@ -3,7 +3,7 @@ body {
   --main-bg-color: #01ECCB; 
   --header-bg-color: #050344;
   --filter-bg-color: #050344;
-  --chatbox-bg-color: #A675F5;
+  --chatbox-bg-color: #2F2AB0;
 
   --primary-text-color: #01ECCB;
   --secundary-text-color: #FFFFFF;
@@ -50,6 +50,11 @@ body {
 
 button {
   border: none;
+  font-size:var(--font-size-s);
+}
+
+input, textarea{
+  font-size:var(--font-size-s);
 }
 
 h1 {

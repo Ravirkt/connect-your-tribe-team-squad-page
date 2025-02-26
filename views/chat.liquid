@@ -1,3 +1,4 @@
+{% render 'partials/head.liquid', title: 'Squad page' %}
 
 {%for message in messages%}
     <article>
@@ -6,14 +7,113 @@
     </article>
 {%endfor%}
 
-<div>
-    <button><img src="/assets/icon-cross.svg" alt=""></button>
+<button class="chat-messages-button-desktop"><img class="messages-desktop" src="/assets/messages-svgrepo-com.svg" alt="chat"></button>
 
-<form method="post" action="/chat">
-<label>Deel het beste boek
-    <input type="text" name="post" required>
-</label>
-<button type="submit">Post</button>
-</form>
+<div class="chatbox">
+    <button class="close-button"><img class="cross-img" src="/assets/icon-cross.svg" alt="cross"></button>
 
-</div>
+    <form class="chat" method="post" action="/chat">
+        <label for="post">Deel het beste boek</label>
+
+        <p>
+            <input id="post" class="messages-post" type="text" name="post" required>
+            <button class="post-button" type="submit">Post</button>
+        </p>
+    </form>
+
+    </div>
+
+<style>
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--main-font-family);
+}
+
+.close-button{
+    width: 3em;
+    height: 3em;
+    display: flex;
+    justify-self: end;
+    background: none;
+    margin-right: .5em;
+}
+
+.cross-img{
+      width: 3em;
+      height: 3em;
+    margin-top: .5em;
+}
+
+.chatbox{
+    background-color: var(--chatbox-bg-color);
+    min-height: 100vh;
+}
+
+.chat {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.messages-post{
+    height: 3em;
+    width: 100%;
+    border: none;
+    padding: 0 1em;
+}
+
+.post-button{
+    flex-shrink: 0;
+    background-color: var(--button-bg-color);
+    height: 3em;
+    width: 5em;
+    border-radius: 0 var(--border-radius-l) var(--border-radius-l) 0;
+}
+
+label{
+    font-size: var(--font-size-h3);
+    color: var(--secundary-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    gap:.5em;
+    padding-top: 1em;
+}
+
+form p {
+    display: flex;
+    background: white;
+    border-radius: var(--border-radius-l);
+    overflow: hidden;
+}
+
+.chat-messages-button-desktop{
+    width: 4em;
+    height: 4em;
+    background-color: var( --button-bg-color);
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    border-radius: var( --border-radius-m) 0px 0px 0px;
+    display: none;
+}
+
+@media screen and (min-width:700px) {
+    .chat-messages-button-desktop{
+        display: block;
+}}
+
+.messages-desktop{
+    width: 3em;
+    height: 3em;
+    margin-top: .5em;
+}
+
+
+
+</style>
