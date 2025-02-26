@@ -15,11 +15,13 @@ app.use(express.urlencoded({ extended: true }));
 
 
 app.get('/', async function (request, response) {
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name&filter={"squads":{"squad_id":{"name":"1G"}}}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?fields=*,squads.squad_id.name,squads.squad_id.cohort&filter={"_and":[{"squads":{"squad_id":{"tribe":{"name":"FDND Jaar 1"}}}},{"squads":{"squad_id":{"cohort":"2425"}}},{"squads":{"squad_id":{"name":"1G"}}}]}&sort=name');
 
-  const personResponseJSON = await personResponse.json()
-  response.render('index.liquid', {persons: personResponseJSON.data})
-})
+  const personResponseJSON = await personResponse.json();
+
+  response.render('index.liquid', { persons: personResponseJSON.data });
+});
+
 
 
 
@@ -74,12 +76,6 @@ app.get('/drama', async function (request, response) {
 
   response.render('index.liquid', { persons: personResponseJSON.data, squads: squadResponseJSON.data })
 })
-
-app.set("port", process.env.PORT || 8000);
-app.listen(app.get("port"), function () {
-  console.log(`Application started on http://localhost:${app.get("port")}`);
-});
-
 
 
 
@@ -148,3 +144,9 @@ app.post('/like', async function (request, response) {
   response.redirect('/chat')
 })
  
+
+
+app.set("port", process.env.PORT || 8000);
+app.listen(app.get("port"), function () {
+  console.log(`Application started on http://localhost:${app.get("port")}`);
+});
