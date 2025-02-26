@@ -4,12 +4,15 @@
       <div class="student-inner">
         <!-- Voorzijde: afbeelding -->
         <div class="student-front">
-          <img src="/assets/{{ person.id }}.png" alt="{{ person.name }}" />
+          <img
+            src="/assets/{{ person.id }}.png"
+            alt="{{ person.name }}"
+            onerror="this.src='/assets/default.png';" />
           <div class="student-info">
             <button class="flip-button">MORE</button>
           </div>
         </div>
-        <!-- Achterzijde: naam en squad -->
+        <!-- Achterzijde: naam, squad, bio en GitHub -->
         <div class="student-back">
           <p>Name: {{ person.name }}</p>
           <p>Squad:
@@ -19,6 +22,13 @@
               Geen squad
             {% endif %}
           </p>
+          <p>Bio:</p>
+          {% if person.bio %}
+            <div class="scrollable-bio">{{ person.bio }}</div>
+          {% else %}
+            <p>They told me to write a bio... so I didn’t. 🤷‍♂️🚀</p>
+          {% endif %}
+
         </div>
       </div>
     </div>
