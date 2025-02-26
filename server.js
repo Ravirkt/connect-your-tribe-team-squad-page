@@ -43,6 +43,10 @@ app.post('/', async function (request, response) {
 app.get('/action', async function (request, response) {
   const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Action"}}')
 
+  const personResponseJSON = await personResponse.json()
+
+  response.render('index.liquid', { persons: personResponseJSON.data, squads: squadResponseJSON.data })
+})
 
 app.set("port", process.env.PORT || 8000);
 app.listen(app.get("port"), function () {
