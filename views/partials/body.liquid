@@ -1,12 +1,13 @@
 {% comment %}
 Logo en titel van de website.
 {% endcomment %}
-<div class="logo-container">
+{% comment %} <div class="logo-container">
   <img src="{{ site.baseurl }}/assets/logo.png" alt="Next Chapter: Squad Logo">
   <h1>Next Chapter: Squad</h1>
-</div>
+</div> {% endcomment %}
 
-<section class="latest-books-section">
+
+<header class="latest-books-section">
   <h2 class="text">
     <span class="letter letter-1">S</span>
     <span class="letter letter-2">Q</span>
@@ -17,4 +18,7 @@ Logo en titel van de website.
     <span class="letter letter-7">1</span>
     <span class="letter letter-8">G</span>
   </h2>
-</section>
+</header>
+
+{% render 'partials/main.liquid', persons: persons %}
+
