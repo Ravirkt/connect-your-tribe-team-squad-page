@@ -55,13 +55,62 @@ app.get('/chat', async function (request, response) {
   response.render('chat.liquid', {persons: personResponseJSON.data})
 })
 
-let messages = []
 
-app.get('/berichten', async function(request, response) {
+// let messages = []
+
+app.get('/chat', async function(request, response) {
+  const messages = await fetch('https://fdnd.directus.app/items/messages/');
     response.render('chat.liquid', {messages: messages})
 })
-
-app.post('/berichten', async function(request, response) {
-  messages.push(request.body.tekstjes)
-  response.redirect(303, '/berichten')
+const teamName = "Zen"
+app.post('/chat', async function(request, response) {
+  await fetch('https://fdnd.directus.app/items/messages/', {
+    method: 'POST',
+    body: JSON.stringify({
+      for: `Team ${teamName}`,
+      text: request.body.post
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  });
+  response.redirect(303, '/chat')
 })
+
+
+
+
+// CODE bewerken
+
+const squadResponse = await fetch('https://fdnd.directus.app/items/squad?filter={"_and":[{"cohort":"2425"},{"tribe":{"name":"FDND Jaar 1"}}]}')
+const squadResponseJSON = await squadResponse.json()
+
+app.get('/logger', async function (request, response) {
+  // Haal berichten op voor het team
+  const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages?limit=-1&filter={"for" : "Team Zen / Vragen"}`);
+  const messagesResponseJSON = await messagesResponse.json();
+ 
+  response.render('logger.liquid', {
+    // teamName: teamName,
+    //squads: squadResponseJSON.data,
+    messages: messagesResponseJSON.data
+  });
+})
+ 
+app.post('/logger', async function (request, response) {
+  await fetch('https://fdnd.directus.app/items/messages/', {
+    method: 'POST',
+    body: JSON.stringify({
+      // teamName: teamName,
+      for: "Team Zen / Vragen",
+      from: request.body.from,
+      text: request.body.message
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  });
+  
+  response.redirect('/logger')
+})
+ 
