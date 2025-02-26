@@ -12,14 +12,24 @@
 <div popover="manual" class="chatbox" id="popover-chatbox">
     <button class="close-button" popovertarget="popover-chatbox" popovertargetaction="hide"><img class="cross-img" src="/assets/icon-cross.svg" alt="cross"></button>
 
-    <form class="chat" method="post" action="/chat">
+    <form class="chat" method="post" action="/logger">
         <label for="post">Deel het beste boek</label>
-
-        <p>
-            <input id="post" class="messages-post" type="text" name="post" required>
+        <div>
+            <input id="post" class="messages-post" type="text" name="message" required>
             <button class="post-button" type="submit">Post</button>
-        </p>
+        </div>
     </form>
+
+    {% for message in messages %}
+        <form method="post" action="/like">
+            <p>{{ message.from }}: {{ message.text }} @{{ message.created | date: '%d-%m-%Y %H:%M' }}</p>
+            <p>Aantal likes: {{ message.likes   }}</p>
+            <input type="text" value="{{ message.id }}" name="id" hidden/>
+            <button type="submit">Hartje</button>
+        </form>
+    {% else %}
+        <p>Er zijn nog geen favoriete boeken.</p>
+    {% endfor %}
 </div>
 
 <style>
@@ -106,7 +116,7 @@
         padding-top: 1em;
     }
 
-    form p {
+    form > div {
         display: flex;
         background: white;
         border-radius: var(--border-radius-l);

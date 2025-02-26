@@ -50,35 +50,19 @@ app.listen(app.get("port"), function () {
 
 app.get('/chat', async function (request, response) {
   const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name&filter={"squads":{"squad_id":{"name":"1G"}}}')
-
   const personResponseJSON = await personResponse.json()
-  response.render('chat.liquid', {persons: personResponseJSON.data})
+
+  const messagesResponse = await fetch(`https://fdnd.directus.app/items/messages?sort=-created&limit=-1&filter={"for" : {"_starts_with": "Team Zen / Vragen"}}`);
+  const messagesResponseJSON = await messagesResponse.json();
+
+  const messages = messagesResponseJSON.data.filter((msg) => msg.for === 'Team Zen / Vragen');
+  messages.forEach((msg) => {
+    const likes = messagesResponseJSON.data.filter((m) => m.for === `Team Zen / Vragen - ${msg.id}`).length
+    msg.likes = likes;
+  })
+  
+  response.render('chat.liquid', {persons: personResponseJSON.data, messages: messages})
 })
-
-
-// let messages = []
-
-app.get('/chat', async function(request, response) {
-  const messages = await fetch('https://fdnd.directus.app/items/messages/');
-    response.render('chat.liquid', {messages: messages})
-})
-const teamName = "Zen"
-app.post('/chat', async function(request, response) {
-  await fetch('https://fdnd.directus.app/items/messages/', {
-    method: 'POST',
-    body: JSON.stringify({
-      for: `Team ${teamName}`,
-      text: request.body.post
-    }),
-    headers: {
-      'Content-Type': 'application/json;charset=UTF-8'
-    }
-  });
-  response.redirect(303, '/chat')
-})
-
-
-
 
 // CODE bewerken
 
@@ -103,7 +87,6 @@ app.post('/logger', async function (request, response) {
     body: JSON.stringify({
       // teamName: teamName,
       for: "Team Zen / Vragen",
-      from: request.body.from,
       text: request.body.message
     }),
     headers: {
@@ -111,6 +94,22 @@ app.post('/logger', async function (request, response) {
     }
   });
   
-  response.redirect('/logger')
+  response.redirect('/chat')
+})
+
+// stap 1: nieuwe /like POST request. Met een unique message id (request.body.id)
+app.post('/like', async function (request, response) {
+  await fetch('https://fdnd.directus.app/items/messages/', {
+    method: 'POST',
+    body: JSON.stringify({
+      // teamName: teamName,
+      for: `Team Zen / Vragen - ${request.body.id}`,
+    }),
+    headers: {
+      'Content-Type': 'application/json;charset=UTF-8'
+    }
+  });
+  
+  response.redirect('/chat')
 })
  
