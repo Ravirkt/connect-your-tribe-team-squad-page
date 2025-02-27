@@ -4,6 +4,7 @@
 
 - 👨🏼‍💼 Opdracht
 - 👩🏽‍💻 Gebruik
+- 📖 beschrijving
 - 🛠 Installatie
 - 📱 Kenmerken
 - 🔍 Technologieën
@@ -16,9 +17,19 @@ De Squadpage-website maakt het makkelijk om contact te houden met de studenten v
 ## 👩🏽‍💻 Gebruik
 
 Met deze website kun je:  
-✅ Het genre van elke student filteren.
-✅ De genre van elke student filteren.  
+✅ Studenten filteren op naam, squad en bio.  
+✅ Het genre van elke student filteren.  
 ✅ Een chatbox gebruiken waarin studenten hun favoriete boeken kunnen delen en bespreken.  
+
+## 📖  Beschrijving
+
+Fatima:
+Ik heb de headline (H1-titel) ontworpen en gestyled met CSS. Daarnaast heb ik de afbeeldingen van de studenten bewerkt en verwerkt in interactieve kaarten.
+Elke kaart bevat een More-knop. Wanneer erop wordt geklikt, wordt de kaart omgedraaid (flip effect), waarna de gefilterde naam, squad en bio van de student worden weergegeven. Deze gegevens worden dynamisch opgehaald vanuit de API.
+Voor de flip-animatie heb ik GSAP gebruikt om een aantrekkelijk visueel effect te creëren.
+
+📷 **Screenshot van mijn gedeelte :**  
+ ![Website Screenshot](/public/assets/fatima.png)  
 
 ## 🛠 Installatie
 
