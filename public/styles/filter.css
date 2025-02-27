@@ -119,6 +119,8 @@ main {
   justify-content: center;
   align-items: center;
   padding-top: 2em;
+  flex-direction: column;
+  gap: 1em;
 
   select {
     padding: 0.625em;
@@ -137,6 +139,12 @@ main {
     display: none;
   }
 }
+
+.genre-label {
+    font-size: var(--font-size-m);
+
+}
+
 
 /* Card Grid Layout */
 .card-container {
