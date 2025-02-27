@@ -28,7 +28,17 @@
     {% endfor %}  {% endcomment %}
 
     {% for message in messages %} 
-        <p class="comments">{{ message.text }}</p> {% comment %} This is where the the comments are placed {% endcomment %}
+        <div class="comments">
+            <p>{{ message.text }}</p> {% comment %} This is where the the comments are placed {% endcomment %}
+            <form action="">
+                {% comment %} <button id="heart-btn" type="submit"><img id="heart-img" src="/assets/icon-heart.svg" alt="like button"></button> {% endcomment %}
+                <button id="heart-btn" type="submit">
+                    <svg id="heart-img">
+                        <path d="M12 7.69431C10 2.99988 3 3.49988 3 9.49991C3 15.4999 12 20.5001 12 20.5001C12 20.5001 21 15.4999 21 9.49991C21 3.49988 14 2.99988 12 7.69431Z"></path>
+                    </svg>
+                </button>
+            </form>
+        </div>
     {% endfor %} 
 </div>
 
@@ -143,10 +153,29 @@
     }
 
     .comments{
+  
         color: var(--secundary-text-color);
         background-color: var(--primary-accent-color);
         padding: 20px;
         border-radius: var(--border-radius-m);
         margin: 1.5rem;
+    }
+
+    .comments-heart{
+        display: flex;
+    }
+
+    #heart-btn{
+        background: none;
+    }
+
+    #heart-img{
+        fill: var(--chatbox-bg-color);
+        width: 2rem;
+        height: 1.5rem;
+    }
+
+    #heart-img:hover {
+        fill: red;
     }
 </style>
