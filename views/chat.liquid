@@ -9,10 +9,10 @@
 <div popover="manual" class="chatbox" id="popover-chatbox"> {% comment %} popover is a small overlay that appears by an interaction, the manual makes javascript have the control while an user interaction takes place {% endcomment %}
     <button class="close-button" popovertarget="popover-chatbox" popovertargetaction="hide"><img class="cross-img" src="/assets/icon-cross.svg" alt="close chat"></button> {% comment %} this button will close the screen where you can share and read comments {% endcomment %}
     <form class="chat" method="post" action="/chat"> {% comment %} The action attribute tells the browser where to send the data, in this case the url: /chat (name of this page) {% endcomment %}
-        <label for="post">Deel het beste boek</label>  {% comment %} Here is a label used because "share your best book" is an instruction. The for="post" attribute links to the textarea antribute {% endcomment %}
+        <label class="chat-titel" for="post">Deel het beste boek</label>  {% comment %} Here is a label used because "share your best book" is an instruction. The for="post" attribute links to the textarea antribute {% endcomment %}
         <div>
             <input id="post" class="messages-post" type="text" name="message" required> {% comment %} This is the area where people can post their favoriete book {% endcomment %}
-            <button class="post-button" type="submit">Post</button> {% comment %} This button will publish the comment of the <testarea> {% endcomment %}
+            <button class="post-button" type="submit">POST</button> {% comment %} This button will publish the comment of the <testarea> {% endcomment %}
         </div>
     </form>
 
@@ -154,6 +154,10 @@
         width: 3em;
         height: 3em;
         margin-top: .5em;
+    }
+
+    .chat-titel{
+        font-family: var(--main-font-family);
     }
 
     .comments{

@@ -123,13 +123,6 @@ Auteur: Fatima El Hilali
   }
 }
 
-
-/* Liberty font */
-@font-face {
-  font-family: "Liberty";
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/907368/liberty.otf');
-}
-
 /* Algemene Neon Text Styling */
 .text {
   font-family: 'Liberty', sans-serif;
