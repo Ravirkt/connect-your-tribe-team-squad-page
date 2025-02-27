@@ -1,10 +1,13 @@
 {% for person in persons %}
   <!-- Een studentkaart -->
   <article class="student">
+    <h2 hidden aria-hidden="true">student</h2>
     <div class="student-inner">
 
       <!-- Voorzijde: afbeelding en "MORE"-knop -->
       <section class="student-front">
+        <h2 hidden>studentcard front side</h2>
+
 
         <img
           src="/assets/{{ person.id }}.png"
