@@ -43,7 +43,7 @@ app.post('/', async function (request, response) {
 // genre filter
 // filter voor action
 app.get('/action', async function (request, response) {
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Action"}}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre,bio&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Action"}}')
 
   const personResponseJSON = await personResponse.json()
 
@@ -52,7 +52,7 @@ app.get('/action', async function (request, response) {
 
 // filter voor thriller
 app.get('/thriller', async function (request, response) {
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Thriller"}}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre,bio&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Thriller"}}')
 
   const personResponseJSON = await personResponse.json()
 
@@ -61,7 +61,7 @@ app.get('/thriller', async function (request, response) {
 
 // filter voor comedy
 app.get('/comedy', async function (request, response) {
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Comedy"}}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre,bio&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Comedy"}}')
 
   const personResponseJSON = await personResponse.json()
 
@@ -70,11 +70,12 @@ app.get('/comedy', async function (request, response) {
 
 // filter voor drama
 app.get('/drama', async function (request, response) {
-  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Drama"}}')
+  const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre,bio&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Drama"}}')
 
   const personResponseJSON = await personResponse.json()
 
   response.render('index.liquid', { persons: personResponseJSON.data, squads: squadResponseJSON.data })
+  console.log(personResponse.json)
 })
 
 
