@@ -63,6 +63,6 @@ Open de website in je browser:
 - Eigen project: Squad-page  
 
 📷 **Screenshot van de website:**  
-![Website Screenshot](./public/assets/web.png)  
+![Website Screenshot](/public/assets/web.png)  
 
 🔗 **Live website:** [Connect Your Tribe - Squad Page](https://connect-your-tribe-team-squad-page-tl10.onrender.com/)  
