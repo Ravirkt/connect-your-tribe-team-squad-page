@@ -53,6 +53,29 @@ Voor de flip-animatie heb ik GSAP gebruikt om een aantrekkelijk visueel effect t
 📷 **Screenshot van mijn gedeelte :**  
  ![Website Screenshot](/public/assets/fatima.png)  
 
+
+### Nadia:
+Als je op de chat klikt krijg je een popover van de chat waar je je beste boek kan laten weten. Je kan de chat openen en sluiten. 
+
+**Design**  
+Voor het design heb ik gebruik gemaakt van de custom properties met de kleuren van FDND. 
+Als je het bericht wilt posten heeft de knop een hover zodat je kan zien dat je erop staat. er is gelet op dat alles goed te zien en leesbaar is. 
+
+**Responsive**  
+Ik heb volgens mobiel first gewerkt, waarna ik steeds naar grotere schermen ging kijken. 
+Op mobiel is de chat over de hele pagina en schermen vanaf 500px gaat die naar de linkerkant en wordt die lager/kleiner daarna wordt er bij 1000px de breedte iets kleiner. 
+https://github.com/Ravirkt/connect-your-tribe-team-squad-page/blob/3136c3225cb846575bd8c2b920e1ce3eebb297bb/public/styles/chat.css#L35-L51
+
+<video src="https://github.com/user-attachments/assets/9cf1215f-9c66-43eb-85fb-e807475c9e48" controls muted autoplay playsinline></video>
+
+**Werking**  
+Door de popover hoefde ik geen Javascript te gebruiken om de chat te openen of te sluiten. 
+https://github.com/Ravirkt/connect-your-tribe-team-squad-page/blob/9a2c9f93d393d03f30a3bd3c9fd0b424d3f1d673/views/chat.liquid#L9-L10
+De button van de chat als die gesloten is fixed en blijft zo staan als er op de pagina gescrollt wordt waar de kaarten staan. Ik heb dit ook voor het kruisje in de chat gedaan zodat je altijd de chat weg kan klikken. 
+
+<video src="https://github.com/user-attachments/assets/fcd14098-6bd3-4f25-88b1-420e85729463" controls muted autoplay playsinline></video>
+
+
 ## 🛠 Installatie
 
 ### Vereisten
