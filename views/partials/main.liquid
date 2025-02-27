@@ -50,7 +50,8 @@
 
 <main class="main-content">
 
-  <form aria-label="choose a genre" class="genre-filter-menu-dropdown">
+  <form class="genre-filter-menu-dropdown">
+    <label for="genres" class="hide-filter-text">Choose a genre</label>
     <select
       name="genre"
       id="genres"
@@ -131,6 +132,10 @@ main {
     padding-top: 10em;
     gap: 0.5em;
   }
+}
+
+.hide-filter-text {
+  display: none;
 }
 
 /* Sidebar filter title */
