@@ -33,3 +33,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+
+// HEART LIKE BUTTON
+// 1) Select the elements
+const heartBtn = document.getElementById('heart-btn');
+const heartCount = document.getElementById('heart-count');
+let heartCountAmount = 0;
+
+// 2) Add an event listeren to it
+heartBtn.addEventListener('click', () => {
+    // 3) Add the event
+    heartCountAmount++;
+    heartCount.innerText = likeCount;
+});
+
+
+
