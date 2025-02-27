@@ -208,7 +208,7 @@ Auteur: Fatima El Hilali
   transition: text-shadow 0.3s ease-in-out;
 }
 
-.students-list {
+/* .students-list {
   display: grid;
   grid-template-columns: 1fr;
   gap: 3rem;
@@ -220,18 +220,18 @@ Auteur: Fatima El Hilali
   margin-right: auto;
   padding: 2rem;
   border-radius: var(--border-radius-l); 
-}
+} */
 
 
 /* Desktop versie: 3 kolommen */
-@media (min-width: 1024px) { 
+/* @media (min-width: 1024px) { 
   .students-list {
     grid-template-columns: repeat(3, 1fr);
     gap: 4rem; 
     width: 60%;
     margin-top: 15%;
   }
-}
+} */
 
 /* Stijl voor de student kaart */
 .student {
