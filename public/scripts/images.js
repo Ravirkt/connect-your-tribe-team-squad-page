@@ -1,32 +1,35 @@
+/**
+ * @file imagest.js
+ * @description Dit script zorgt ervoor dat de studentkaart wordt geflipt. 
+ * Het maakt gebruik van GSAP voor animaties en ondersteunt zowel desktop als mobiel.
+ * @author Fatima El Hilali
+ */
+
+
 document.addEventListener("DOMContentLoaded", function () {
+    // Selecteer alle elementen met de klasse "student"
     const students = document.querySelectorAll(".student");
-  
+
     students.forEach((student) => {
+        // Selecteer het binnenste element 
         const studentInner = student.querySelector(".student-inner");
-        const studentImage = student.querySelector(".student-front img");
-  
-        // Flip-effect met GSAP
+
+        //  voor een  3D-effect
+        student.style.perspective = "1000px"; 
+
+        // Luister naar een klik op de student-kaart
         student.addEventListener("click", function () {
-            if (!this.classList.contains("flipped")) {
-                gsap.to(studentInner, {
-                    rotationY: 180,
-                    scale: 1.05,
-                    duration: 0.6,
-                    ease: "expo.inOut"
-                });
-                this.classList.add("flipped");
-            } else {
-                gsap.to(studentInner, {
-                    rotationY: 0,
-                    scale: 1,
-                    duration: 0.6,
-                    ease: "expo.inOut"
-                });
-                this.classList.remove("flipped");
-            }
+            // Toggle de "flipped" klasse (voegt toe of verwijdert)
+            const isFlipped = student.classList.toggle("flipped");
+
+            // Gebruik GSAP om de animatie soepel te maken
+            gsap.to(studentInner, {
+                rotationY: isFlipped ? 180 : 0, // Flip naar 180° of terug naar 0°
+                duration: 0.8, // Duur van de animatie in seconden
+                ease: "elastic.out(1, 0.5)", // Voegt een lichte bounce toe voor een mooi effect
+                scale: isFlipped ? 1.08 : 1, // Iets vergroten bij flip voor extra impact
+            });
         });
-  
-  
     });
-  });
-  
+});
+
