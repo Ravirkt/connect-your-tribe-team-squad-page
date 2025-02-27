@@ -1,0 +1,142 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.close-button{
+    width: 3em;
+    height: 3em;
+    display: flex;
+    justify-self: end;
+    background: none;
+    margin-right: .5em;
+    position: sticky;
+    top: 0;
+}
+
+.cross-img{
+    width: 3em;
+    height: 3em;
+    margin-top: .5em;
+}
+
+.chatbox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--chatbox-bg-color);
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    border: none;
+}
+
+@media screen and (min-width:500px){
+    .chatbox{
+        width: 40%;
+        height: calc(100vh - 2rem);
+        min-height: calc(100vh - 2rem);
+        left: auto;
+        right: 1rem;
+        top: 10rem;
+        border-radius: var(--border-radius-l);
+    }
+}
+
+@media screen and (min-width:1000px){
+    .chatbox{
+        width: 30%;
+    }
+}
+
+.chat {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.messages-post{
+    height: 3em;
+    width: 100%;
+    border: none;
+    padding: 0 1em;
+}
+
+.post-button{
+    flex-shrink: 0;
+    background-color: var(--button-bg-color);
+    height: 3em;
+    width: 5em;
+    border-radius: 0 var(--border-radius-l) var(--border-radius-l) 0;
+}
+
+.post-button:hover{
+    background-color: var(--secundaire-accent-color);
+}
+
+label{
+    font-size: var(--font-size-h3);
+    color: var(--secundary-text-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;    
+    gap:.5em;
+    padding-top: 1em;
+}
+
+form > div {
+    display: flex;
+    background: white;
+    border-radius: var(--border-radius-l);
+    overflow: hidden;
+}
+
+.chat-messages-button-desktop{
+    width: 4.5em;
+    height: 4.5em;
+    background-color: var( --button-bg-color);
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: var( --border-radius-m);
+}
+
+.messages-desktop{
+    width: 3em;
+    height: 3em;
+    margin-top: .5em;
+}
+
+.chat-titel{
+    font-family: var(--main-font-family);
+}
+
+.comments{
+
+    color: var(--secundary-text-color);
+    background-color: var(--primary-accent-color);
+    padding: 20px;
+    border-radius: var(--border-radius-m);
+    margin: 1.5rem;
+}
+
+.comments-heart{
+    display: flex;
+}
+
+#heart-btn{
+    background: none;
+}
+
+#heart-img{
+    fill: var(--chatbox-bg-color);
+    width: 2rem;
+    height: 1.5rem;
+}
+
+#heart-img:hover {
+    fill: red;
+}
