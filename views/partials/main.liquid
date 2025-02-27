@@ -218,7 +218,8 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: auto;
   place-items: center;
-  gap: 2em;
+  row-gap: 2em;
+
 
   @media (min-width: 500px) {
     grid-template-columns: repeat(2, 1fr);
@@ -244,7 +245,7 @@ main {
         button.classList.toggle("active", button.href === window.location.href);
 
         button.addEventListener("click", () => {
-            document.querySelector(".button.active")?.classList.remove("active");
+            document.querySelector(".button.active").classList.remove("active");
             button.classList.add("active");
         });
     });
