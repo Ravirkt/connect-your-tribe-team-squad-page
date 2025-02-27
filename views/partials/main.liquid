@@ -3,8 +3,11 @@
 
   <a href="/action" class="filter-button">
     Action
-    <img src="/assets/Vector 7.svg" style="color: #050344;" alt="Icon">
-</a>
+    <img
+      src="/assets/Vector 7.svg"
+      style="color: #050344;"
+      alt="Icon">
+  </a>
 
   <a href="/thriller" class="button">Thriller</a>
   <a href="/comedy" class="button">Comedy</a>
@@ -29,7 +32,7 @@
 
   <section class="card-container">
     {% render 'partials/images.liquid'
-      , persons: persons %}
+     , persons: persons %}
   </section>
 
 </main>
@@ -60,7 +63,7 @@
     justify-content: center;
     align-items: center;
 
-    @media (min-width: 700px) {
+    @media(min-width: 700px) {
       grid-column: 2 / 4;
       grid-row: 1;
       border-radius: 0 0 0 20px;
@@ -73,7 +76,7 @@
     color: #00eccb;
     display: none;
 
-    @media (min-width: 700px) {
+    @media(min-width: 700px) {
       display: block;
       grid-column: 1;
       grid-row: 1 / 4;
@@ -91,7 +94,7 @@
     grid-row: 2 / 4;
     grid-column: 1 / 4;
 
-    @media (min-width: 700px) {
+    @media(min-width: 700px) {
       grid-row: 2 / 4;
       grid-column: 2 / 4;
     }
@@ -118,14 +121,14 @@
       letter-spacing: 3px;
     }
 
-    @media (min-width: 700px) {
+    @media(min-width: 700px) {
       display: none;
     }
   }
 
 
   .card-container {
-    padding-top: 2em;
+    padding-top: 20%;
     padding-bottom: 2em;
     display: grid;
     grid-template-columns: 1fr;
@@ -133,17 +136,17 @@
     justify-content: center;
     align-items: center;
     place-items: center;
-    gap: 2em;
+    gap: 5em;
 
-    @media (min-width: 500px) {
+    @media(min-width: 500px) {
       grid-template-columns: repeat(2, 1fr);
     }
 
-    @media (min-width: 900px) {
+    @media(min-width: 900px) {
       grid-template-columns: repeat(3, 1fr);
     }
 
-    @media (min-width: 1200px) {
+    @media(min-width: 1200px) {
       grid-template-columns: repeat(4, 1fr);
     }
 
@@ -164,6 +167,4 @@
     display: flex;
     background-color: #00eccb;
   }
-
-
 </style>

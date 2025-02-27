@@ -441,3 +441,15 @@ transition: all 0.3s ease-in-out;
   background: rgba(1, 236, 203, 0.4);
   border-radius: 0.2rem;
 }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  white-space: nowrap; /* Voorkomt dat de tekst zichtbaar wordt bij line-breaks */
+}
