@@ -76,6 +76,41 @@ De button van de chat als die gesloten is fixed en blijft zo staan als er op de 
 <video src="https://github.com/user-attachments/assets/fcd14098-6bd3-4f25-88b1-420e85729463" controls muted autoplay playsinline></video>
 
 
+### Ravi
+
+De filter wordt gebruikt om de verschillende personen te groeperen op favoriete boek genre. Ik ben hiervoor als eerst begonnen met de layout in html en css.
+
+De layout bestaat uit een sidebar met daarin de filterbuttons en een headerbar met daarin de titel van de website. De overige ruimte is de plek waar de cards komen van de verschullende personen.
+
+**Design**  
+De layout van de pagina heb ik gestructureerd met Grid. Om de Grid duidelijk te krijgen heb ik een simpele schets gemaakt waarin ik de verschillende kolommen en rijen duidelijk maak. De layout in css heb ik gemaakt volgens het mobile first principe en heb ik gebruikt gemaakt van media queries zodat de website te gebruiken is op verschillende formaten.
+
+*Techniek*
+Het filteren is gedaan doormiddel van een GET request: ``` app.get('/drama', async function (request, response { ```. ALs de gebruiker de route /drama bezoek zal de functie worden uitgevoerd. De functie heeft 2 variabelen, de request en response. De request is aanvraag van gegevens die worden opgevraagt en de response is het antwoord dat terug wordt gestuurd.
+
+```const personResponse = await fetch('https://fdnd.directus.app/items/person/?sort=name&fields=id,name,squads.squad_id.name,fav_book_genre,bio&filter={"squads":{"squad_id":{"name":{"_eq":"1G"}}},"fav_book_genre":{"_eq":"Drama"}}') ```
+
+In deze regel code wordt er vervolgens een fetch functie gedaan waarbij er gegevens worden opgehaald van de directus API. 
+
+De url filtert de id, name, bio van elke persoon in squad 1G met als favoriete genre: Drama. Deze gegevens worden vervolgens opgeslagen in de variabele ```const personResponse```. 
+
+```const personResponseJSON = await personResponse.json()``` De code zorgt ervoor dat de data dat gefetched is omgezet wordt naar JSON data zodat deze data gemanipuleert kan worden in javascript. Dit wordt opgeslagen in de variabele ```const personResponseJSON```. 
+
+```response.render('index.liquid', { persons: personResponseJSON.data, squads: squadResponseJSON.data })```. Deze regel code zorgt ervoor dat de data in de response wordt doorgegeven naar de index.liquid view. Hierbij worden de gegevens van de personen meegegeven. ```persons: personResponseJSON.data```
+
+Dit is de filter voor de genre Drama. Voor de genres: Action, Comedy en Thriller heb ik een andere GET request met url dat vervolgens filtert op de genre.
+
+Als je nu /drama of /action, zal de filter op betreffende genre filteren en dus die betreffende GET request uitvoeren.
+
+
+
+
+
+
+
+
+
+
 ## 🛠 Installatie
 
 ### Vereisten
