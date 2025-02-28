@@ -120,6 +120,7 @@ app.post('/index', async function (request, response) {
     method: 'POST',
     body: JSON.stringify({
       // teamName: teamName,
+      from: '',
       for: "Team Zen / Vragen",
       text: request.body.message // post
     }),

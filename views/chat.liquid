@@ -27,6 +27,8 @@
         <p>Er zijn nog geen favoriete boeken.</p>
     {% endfor %}  {% endcomment %}
 
+    {{ messages|json }}
+
     {% for message in messages %} 
         <div class="comments">
             <p>{{ message.text }}</p> {% comment %} This is where the the comments are placed {% endcomment %}
