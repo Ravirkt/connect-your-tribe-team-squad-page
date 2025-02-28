@@ -102,8 +102,16 @@ Dit is de filter voor de genre Drama. Voor de genres: Action, Comedy en Thriller
 
 Als je nu /drama of /action, zal de filter op betreffende genre filteren en dus die betreffende GET request uitvoeren.
 
+https://github.com/Ravirkt/connect-your-tribe-team-squad-page/blob/f40af4cf5d4559aa416f36617580633373542380/server.js#L71-L79
 
+Html
+Het filteren kan op 2 manieren gedaan worden op mobiel is er een select form dropdown. Op grotere schermen is er sidebar met daarin 4 buttons. Elk voor een genre. De anker elementen hebben een href dat de route heeft van de GET request, bijvoorbeeld: /drama
 
+https://github.com/Ravirkt/connect-your-tribe-team-squad-page/blob/f40af4cf5d4559aa416f36617580633373542380/views/partials/main.liquid#L40-L47
+
+Bij de select form kan je geen href gebruiken. Hiervoor heb ik ```onchange="if(this.value) window.location.href=this value;">``` gebruikt. ```if(this.value)```. Dit kijkt of er een option is gekozen. Is dit niet het geval, dan gebeurt er niks. ```window.location.href=this```. Dit zorgt ervoor dat de gekozen value in de href wordt gezet waarbij de gebruiker vervolgens wordt doorverwezen naar de route.
+
+https://github.com/Ravirkt/connect-your-tribe-team-squad-page/blob/f40af4cf5d4559aa416f36617580633373542380/views/partials/main.liquid#L53-L65
 
 
 
